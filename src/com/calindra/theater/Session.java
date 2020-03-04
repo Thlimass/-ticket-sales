@@ -6,15 +6,15 @@ import java.time.LocalDateTime;
 public class Session {
     private long id;
     private String date;
-    private String horario;
+    private String hour;
     private double valor;
     private Room sala;
     private Movie movie;
 
-    public Session(long id, String date, String horario, double valor, Room sala, Movie movie) {
+    public Session(long id, String date, String hour, double valor, Room sala, Movie movie) {
         this.id = id;
         this.date = date;
-        this.horario = horario;
+        this.hour = hour;
         this.valor = valor;
         this.sala = sala;
         this.movie = movie;
@@ -25,7 +25,7 @@ public class Session {
         return "Session{" +
                 "id=" + id +
                 ", date='" + date + '\'' +
-                ", horario='" + horario + '\'' +
+                ", hour='" + hour + '\'' +
                 ", valor=" + valor +
                 ", sala=" + sala +
                 ", movie=" + movie +
@@ -48,12 +48,12 @@ public class Session {
         this.date = date;
     }
 
-    public String getHorario() {
-        return horario;
+    public String getHour() {
+        return hour;
     }
 
-    public void setHorario(String horario) {
-        this.horario = horario;
+    public void setHour(String hour) {
+        this.hour = hour;
     }
 
     public double getValor() {

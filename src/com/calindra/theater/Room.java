@@ -2,18 +2,18 @@ package com.calindra.theater;
 
 public class Room {
     private long id;
-    private int qtdAcentos;
+    private int qtdArmchair;
 
-    public Room(long id, int qtdAcentos) {
+    public Room(long id, int qtdArmchair) {
         this.id = id;
-        this.qtdAcentos = qtdAcentos;
+        this.qtdArmchair = qtdArmchair ;
     }
 
     @Override
     public String toString() {
         return "Room{" +
                 "id=" + id +
-                ", qtdAcentos=" + qtdAcentos +
+                ", qtdArmchair=" + qtdArmchair +
                 '}';
     }
 
@@ -25,11 +25,11 @@ public class Room {
         this.id = id;
     }
 
-    public int getQtdAcentos() {
-        return qtdAcentos;
+    public int getQtdArmchair() {
+        return qtdArmchair;
     }
 
-    public void setQtdAcentos(int qtdAcentos) {
-        this.qtdAcentos = qtdAcentos;
+    public void setQtdArmchair(int qtdArmchair) {
+        this.qtdArmchair = qtdArmchair;
     }
 }
