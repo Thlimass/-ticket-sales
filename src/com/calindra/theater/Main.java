@@ -12,10 +12,10 @@ public class Main {
 
 
 
-        Ticket ticket = new Ticket();
-        ticket.saleTicket(session,2);
-        System.out.println("valor do ticket " + ticket.getValor());;
-        System.out.println(session.toString());
+//        Ticket ticket = new Ticket();
+//        ticket.saleTicket(session,2);
+//        System.out.println("valor do ticket " + ticket.getValor());;
+//        System.out.println(session.toString());
 
     }
 }
