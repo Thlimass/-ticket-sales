@@ -11,7 +11,7 @@ public class Main {
         Session session = new Session(3,"04/03/2020","18:00",25,room,movie_exterminador);
 
         Ticket ticket = new Ticket();
-        ticket = ticket.saleTicket(session,41);
+        ticket = ticket.saleTicket(session,2, "NAO SEI");
 
         /*Se o nome ou qualquer campo do filme vier vazio imprime que nao foi possivel vender, se nao imprime o ingresso vendido*/
         if (ticket.getMovie() == null ) {
