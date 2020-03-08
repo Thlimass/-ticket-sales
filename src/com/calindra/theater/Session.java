@@ -1,7 +1,6 @@
 package com.calindra.theater;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+
 
 public class Session {
     private long id;
