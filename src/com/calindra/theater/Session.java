@@ -8,15 +8,15 @@ public class Session {
     private String date;
     private String hour;
     private double valor;
-    private Room sala;
+    private Room room;
     private Movie movie;
 
-    public Session(long id, String date, String hour, double valor, Room sala, Movie movie) {
+    public Session(long id, String date, String hour, double valor, Room room, Movie movie) {
         this.id = id;
         this.date = date;
         this.hour = hour;
         this.valor = valor;
-        this.sala = sala;
+        this.room = room;
         this.movie = movie;
     }
 
@@ -27,7 +27,7 @@ public class Session {
                 ", date='" + date + '\'' +
                 ", hour='" + hour + '\'' +
                 ", valor=" + valor +
-                ", sala=" + sala +
+                ", room=" + room +
                 ", movie=" + movie +
                 '}';
     }
@@ -64,12 +64,12 @@ public class Session {
         this.valor = valor;
     }
 
-    public Room getSala() {
-        return sala;
+    public Room getRoom() {
+        return room;
     }
 
-    public void setSala(Room sala) {
-        this.sala = sala;
+    public void setRoom(Room room) {
+        this.room = room;
     }
 
     public Movie getMovie() {

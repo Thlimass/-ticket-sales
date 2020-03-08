@@ -5,16 +5,21 @@ public class Ticket {
     private  long id;
     private String date;
     private String hour;
-    private double valor;
-    private int room;
+    private double qntTicketsale;
+    private long room;
     private String movie;
 
-    /**Construtor - Responsavel por construir/criar um objeto do tipo da minha classe**/
-    public Ticket (long id, String movie,  int room, double valor, String date, String hour){
+    public Ticket(){
+
+    }
+
+    /**Construtor - Responsavel por construir/criar um objeto do tipo da minha classe.
+     * Com todos os campos passados para ele (construtor) obrigatoriamente**/
+    public Ticket (long id, String movie,  long room, double qntTicketsale, String date, String hour){
         this.id = id;
         this.movie = movie;
         this.room = room;
-        this.valor = valor;
+        this.qntTicketsale = qntTicketsale;
         this.date = date;
         this.hour = hour;
     }
@@ -26,7 +31,7 @@ public class Ticket {
                 "id=" + id +
                 ", date='" + date + '\'' +
                 ", hour='" + hour + '\'' +
-                ", valor=" + valor +
+                ", qntTicketsale=" + qntTicketsale +
                 ", room=" + room +
                 ", movie='" + movie + '\'' +
                 '}';
@@ -58,19 +63,19 @@ public class Ticket {
         this.hour = hour;
     }
 
-    public double getValor() {
-        return valor;
+    public double getQntTicketsale() {
+        return qntTicketsale;
     }
 
-    public void setValor(double valor) {
-        this.valor = valor;
+    public void setQntTicketsale(double qntTicketsale) {
+        this.qntTicketsale = qntTicketsale;
     }
 
-    public int getRoom() {
+    public long getRoom() {
         return room;
     }
 
-    public void setRoom(int room) {
+    public void setRoom(long room) {
         this.room = room;
     }
 
@@ -81,20 +86,35 @@ public class Ticket {
     public void setMovie(String movie) {
         this.movie = movie;
     }
+    //TODO Diminuir a qtde de cadeiras disponieis na sala - OK
+    //TODO Validar se existem cadeiras disponiveis para a quantidade de ingressos comprados Se(qtdeIngress > QtdeCadeiras) : Nao posso vender senao posso vender
+    //TODO Calcular o valor do total de ingressos vendidos - OK
+    //TODO Imprimir o ingresso vendido ao final da venda concluida
+    public Ticket saleTicket(Session session, int qtdeTicket){
+
+        /*Pegando a quantidade de cadeiras disponiveis*/
+        var qtdeArmchairDisponiveis = session.getRoom().getQtdArmchair();
+//
+        /*Colocando o novo valor de cadeiras dispoviveis na sala*/
+        session.getRoom().setQtdArmchair(qtdeArmchairDisponiveis - qtdeTicket);
 
 
+        /*Construir o filme*/
+        Ticket ticket = new Ticket();
 
 
+        if (qtdeArmchairDisponiveis > qtdeTicket){
+            var totalTicketVendido = session.getValor()*qtdeTicket;
 
-    /*private double valor;
+            ticket.setMovie(session.getMovie().getTitle());
+            ticket.setDate(session.getDate());
+            ticket.setHour(session.getHour());
+            ticket.setRoom(session.getRoom().getId());
+            ticket.setQntTicketsale(totalTicketVendido);
 
-    public double getValor() {
-        return valor;
+        }
+
+
+        return ticket;
     }
-
-    public void saleTicket(Session session, int qtdeTicket){
-        var qtdeArmchairDisponiveis = session.getSala().getQtdArmchair();
-        session.getSala().setQtdArmchair(qtdeArmchairDisponiveis - qtdeTicket);
-        this.valor = session.getValor() * qtdeTicket;
-    }*/
 }

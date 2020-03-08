@@ -6,6 +6,7 @@ public class Movie {
     private String gender;
     private int classification;
 
+
     public Movie(long id, String title, String gender, int classification) {
         this.title = title;
         this.gender = gender;
